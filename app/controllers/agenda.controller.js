@@ -4,6 +4,8 @@
 		.controller('agenda.controller',['$scope','agendaFactory',function($scope,agendaFactory){
 			$scope.guardar = guardar;
 			$scope.borrar = borrar;
+			$scope.editar = editar;
+			$scope.enviaEditar = envia;
 
 			obtenerContactos();
 
@@ -35,6 +37,21 @@
 					.catch();
 				function contactosExito(response){
 					$scope.contactos = response.data.users;
+				}
+			}
+
+			function editar(contacto){
+				$scope.contactoE = contacto;
+			}
+
+			function envia(){
+				var url = "http://localhost:1337/users/$scope.contactoE.id";
+				agendaFactory.editar(url,$scope.contactoE)
+					.then(exito)
+					.catch();
+				function exito(response){
+					$scope.contactoE = {};
+					obtenerContactos();
 				}
 			}
 		}]);

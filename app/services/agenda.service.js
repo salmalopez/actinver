@@ -48,6 +48,22 @@
 					.catch(function(err){
 						return err;
 					});
+				},
+				editar : function(url,contacto){
+					return $http({
+						url : url,
+						method : 'PUT',
+						data : contacto,
+						headers : {
+							'Authorization' : sessionStorage.getItem('__token')
+						}
+					})
+						.then(function(response){
+							return response;
+						})
+						.catch(function(err){
+							return err;
+						});
 				}
 			};
 		}]);

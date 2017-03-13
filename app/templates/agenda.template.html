@@ -21,7 +21,7 @@
 						<td>{{c.name}}</td>
 						<td>{{c.phone}}</td>
 						<td><a href="" ng-click="borrar(c.id)">Borrar</a></td>
-						<td>Editar</td>
+						<td><a href="" ng-click="editar(c)">Editar</a></td>
 					</tr>
 				</thead>
 			</table>
@@ -36,6 +36,21 @@
 					<label>Teléfono</label>
 					<input type="text" class="form-control" placeholder="Ej. 5543567812" ng-model="contacto.phone">
 					<button class="btn btn-primary" ng-click="guardar()">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<form>
+				<div class="form-group">
+					<label>Nombre</label>
+					<input type="text" class="form-control" placeholder="Ej. Salma" ng-model="contactoE.name">
+				</div>
+				<div class="form-group">
+					<label>Teléfono</label>
+					<input type="text" class="form-control" placeholder="Ej. 5543567812" ng-model="contactoE.phone">
+					<button class="btn btn-primary" ng-click="enviaEditar()">editar</button>
 				</div>
 			</form>
 		</div>
